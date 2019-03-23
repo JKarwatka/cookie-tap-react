@@ -3,6 +3,12 @@
   "plugins": ["prettier", "react", "jsx-a11y"],
   "rules": {
     "prettier/prettier": ["error"],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
     "linebreak-style": ["error", "windows"]
   },
   "globals": {
