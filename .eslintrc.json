@@ -1,0 +1,14 @@
+{
+  "extends": ["airbnb", "prettier", "prettier/react"],
+  "plugins": ["prettier", "react", "jsx-a11y"],
+  "rules": {
+    "prettier/prettier": ["error"],
+    "linebreak-style": ["error", "windows"]
+  },
+  "globals": {
+    "window": true,
+    "document": true,
+    "localStorage": true
+  },
+  "parser": "babel-eslint"
+}
