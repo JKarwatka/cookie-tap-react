@@ -16,5 +16,10 @@
     "document": true,
     "localStorage": true
   },
+  "env": {
+    "browser": true,
+    "jest": true,
+    "es6": true
+  },
   "parser": "babel-eslint"
 }
