@@ -1,16 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
+import { cookiesPerSecondSelector } from '../../js/selectors/selectors';
 
-function CookieCounter({ cookieCount }) {
-  return <h2>Counter + {cookieCount}</h2>;
+const StyledContainer = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+`;
+function CookieCounter({ cookieCount, cookiesPerSecond }) {
+  return (
+    <StyledContainer>
+      <h2>Counter + {cookieCount}</h2>
+      <p>Cookies per second: {cookiesPerSecond}</p>
+    </StyledContainer>
+  );
 }
 
 CookieCounter.propTypes = {
-  cookieCount: PropTypes.number.isRequired
+  cookieCount: PropTypes.number.isRequired,
+  cookiesPerSecond: PropTypes.number.isRequired
 };
 const mapStateToProps = state => {
-  return { cookieCount: state.cookieCount };
+  return {
+    cookieCount: state.cookieCount,
+    cookiesPerSecond: cookiesPerSecondSelector(state)
+  };
 };
 
 export default connect(
