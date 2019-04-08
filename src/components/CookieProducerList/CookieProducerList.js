@@ -13,8 +13,8 @@ function CookieProducerList(props) {
   const { arrayOfProducers } = props;
   return (
     <StyledContainer>
-      {arrayOfProducers.map(element => {
-        return <CookieProducer element={element} />;
+      {arrayOfProducers.map(producer => {
+        return <CookieProducer producer={producer} />;
       })}
     </StyledContainer>
   );

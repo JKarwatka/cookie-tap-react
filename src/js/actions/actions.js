@@ -1,7 +1,15 @@
-import { ADD_COOKIE, BUY_UPGRADE, BUY_PRODUCER } from './action-types';
+import {
+  ADD_COOKIE,
+  BUY_UPGRADE,
+  BUY_PRODUCER,
+  REMOVE_COOKIE
+} from './action-types';
 
 export function addCookie(payload) {
   return { type: ADD_COOKIE, payload };
+}
+export function removeCookie(payload) {
+  return { type: REMOVE_COOKIE, payload };
 }
 
 export function buyUpgrade(payload) {

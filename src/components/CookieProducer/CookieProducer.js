@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { buyProducer } from '../../js/actions/actions';
+
+import ProducerButton from '../BuyProducerButton/BuyProducerButton';
 
 const StyledProducer = styled.div`
   display: flex;
@@ -20,50 +20,33 @@ const StyledButtonContainer = styled.div`
   flex: 0 0 30%;
 `;
 
-const StyledButton = styled.button`
-  width: 4rem;
-  padding: 1rem;
-`;
 const StyledProducerTitle = styled.h2`
   flex: 0 0 70%;
   text-align: center;
 `;
 
 function CookieProducer(props) {
-  const { handleClick, element } = { ...props };
+  const { producer } = { ...props };
   return (
     <StyledProducer>
-      <StyledProducerTitle>{element.name}</StyledProducerTitle>
+      <StyledProducerTitle>{producer.name}</StyledProducerTitle>
       <StyledButtonContainer>
-        <StyledButton onClick={() => handleClick(element.id, 1)}>
-          x1
-        </StyledButton>
-        <StyledButton onClick={() => handleClick(element.id, 10)}>
-          x10
-        </StyledButton>
+        <ProducerButton producer={producer} quantityToBuy={1} />
+        <ProducerButton producer={producer} quantityToBuy={10} />
       </StyledButtonContainer>
     </StyledProducer>
   );
 }
 
 CookieProducer.propTypes = {
-  element: PropTypes.shape({
+  producer: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
     baseValue: PropTypes.number,
     cookiesPerSecond: PropTypes.number,
     priceIncrease: PropTypes.number,
     owned: PropTypes.number
-  }).isRequired,
-  handleClick: PropTypes.func.isRequired
+  }).isRequired
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    handleClick: (id, quantity) => dispatch(buyProducer(id, quantity))
-  };
-};
-export default connect(
-  null,
-  mapDispatchToProps
-)(CookieProducer);
+export default CookieProducer;
