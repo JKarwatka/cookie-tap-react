@@ -28,7 +28,7 @@ function Cookie({ handleClick }) {
     <StyledContainer>
       <StyledCookie
         src={`${process.env.PUBLIC_URL}/cookie.svg`}
-        alt=""
+        alt="cookie"
         onClick={handleClick}
       />
     </StyledContainer>
