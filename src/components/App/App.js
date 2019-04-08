@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import Cookie from '../Cookie/Cookie';
 import CookieCounter from '../CookieCounter/CookieCounter';
 import store from '../../js/store';
-import CookieProducerList from '../../CookieProducerList/CookieProducerList';
+import CookieProducerList from '../CookieProducerList/CookieProducerList';
 
 const StyledApp = styled.div`
   min-height: 100vh;
