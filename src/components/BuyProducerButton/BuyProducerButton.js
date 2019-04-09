@@ -3,7 +3,10 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { buyProducer, removeCookie } from '../../js/actions/actions';
-import { producerPriceSelector } from '../../js/selectors/selectors';
+import {
+  producerPriceSelector,
+  isBuyableSelector
+} from '../../js/selectors/selectors';
 
 const StyledButton = styled.button`
   width: 4rem;
@@ -11,11 +14,18 @@ const StyledButton = styled.button`
 `;
 
 function BuyProducerButton(props) {
-  const { handleClick, producer, quantityToBuy, currentProducerPrice } = {
+  const {
+    handleClick,
+    producer,
+    quantityToBuy,
+    currentProducerPrice,
+    isBuyable
+  } = {
     ...props
   };
   return (
     <StyledButton
+      disabled={!isBuyable}
       onClick={() =>
         handleClick(producer.id, quantityToBuy, currentProducerPrice)
       }
@@ -26,6 +36,7 @@ function BuyProducerButton(props) {
 }
 
 BuyProducerButton.propTypes = {
+  isBuyable: PropTypes.bool.isRequired,
   cookieCount: PropTypes.number.isRequired,
   quantityToBuy: PropTypes.number.isRequired,
   handleClick: PropTypes.func.isRequired,
@@ -51,7 +62,8 @@ const mapDispatchToProps = dispatch => {
 const mapStatetoProps = (state, props) => {
   return {
     currentProducerPrice: producerPriceSelector(state, props),
-    cookieCount: state.cookieCount
+    cookieCount: state.cookieCount,
+    isBuyable: isBuyableSelector(state, props)
   };
 };
 
