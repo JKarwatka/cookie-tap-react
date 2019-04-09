@@ -6,7 +6,7 @@ const initialState = [
     name: 'Cursor',
     baseValue: 15,
     cookiesPerSecond: 0.1,
-    priceIncrease: 0.2,
+    priceIncrease: 0.15,
     owned: 0
   },
   {
@@ -14,7 +14,7 @@ const initialState = [
     name: 'Grandma',
     baseValue: 100,
     cookiesPerSecond: 1,
-    priceIncrease: 0.2,
+    priceIncrease: 0.15,
     owned: 0
   },
   {
@@ -22,7 +22,7 @@ const initialState = [
     name: 'Farm',
     baseValue: 1100,
     cookiesPerSecond: 8,
-    priceIncrease: 0.2,
+    priceIncrease: 0.15,
     owned: 0
   },
   {
@@ -30,7 +30,7 @@ const initialState = [
     name: 'Mine',
     baseValue: 12000,
     cookiesPerSecond: 47,
-    priceIncrease: 0.2,
+    priceIncrease: 0.15,
     owned: 0
   },
   {
@@ -38,7 +38,7 @@ const initialState = [
     name: 'Factory',
     baseValue: 130000,
     cookiesPerSecond: 260,
-    priceIncrease: 0.2,
+    priceIncrease: 0.15,
     owned: 0
   },
   {
@@ -46,20 +46,20 @@ const initialState = [
     name: 'Bank',
     baseValue: 1400000,
     cookiesPerSecond: 260,
-    priceIncrease: 0.2,
+    priceIncrease: 0.15,
     owned: 0
   }
 ];
 function producersReducer(prevState = initialState, action) {
   switch (action.type) {
     case BUY_PRODUCER: {
-      const newState = prevState.map(item => {
-        if (item.id === action.id) {
-          const { owned } = item;
-          const bought = action.payload;
-          return { ...item, owned: owned + bought };
+      const newState = prevState.map(producer => {
+        if (producer.id === action.producerId) {
+          const { owned } = producer;
+          const quantityBought = action.payload;
+          return { ...producer, owned: owned + quantityBought };
         }
-        return item;
+        return producer;
       });
       return newState;
     }

@@ -16,6 +16,6 @@ export function buyUpgrade(payload) {
   return { type: BUY_UPGRADE, payload };
 }
 
-export function buyProducer(id, payload) {
-  return { type: BUY_PRODUCER, id, payload };
+export function buyProducer(producerId, payload) {
+  return { type: BUY_PRODUCER, producerId, payload };
 }
