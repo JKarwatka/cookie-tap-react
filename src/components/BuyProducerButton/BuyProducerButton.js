@@ -15,7 +15,11 @@ function BuyProducerButton(props) {
     ...props
   };
   return (
-    <StyledButton onClick={() => handleClick(producer.id, quantityToBuy)}>
+    <StyledButton
+      onClick={() =>
+        handleClick(producer.id, quantityToBuy, currentProducerPrice)
+      }
+    >
       x{quantityToBuy} {currentProducerPrice}
     </StyledButton>
   );
@@ -37,9 +41,9 @@ BuyProducerButton.propTypes = {
 
 const mapDispatchToProps = dispatch => {
   return {
-    handleClick: (id, quantity) => {
+    handleClick: (id, quantity, currentProducerPrice) => {
       dispatch(buyProducer(id, quantity));
-      dispatch(removeCookie());
+      dispatch(removeCookie(currentProducerPrice));
     }
   };
 };
