@@ -1,5 +1,5 @@
 import * as actions from './actions';
-import * as types from './action-types';
+import * as types from './actionTypes';
 
 describe('actions', () => {
   describe('addCookie()', () => {

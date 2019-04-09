@@ -3,7 +3,7 @@ import {
   BUY_UPGRADE,
   BUY_PRODUCER,
   REMOVE_COOKIE
-} from './action-types';
+} from './actionTypes';
 
 export function addCookie(payload) {
   return { type: ADD_COOKIE, payload };

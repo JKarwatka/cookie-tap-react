@@ -1,4 +1,4 @@
-import { BUY_PRODUCER } from '../actions/action-types';
+import { BUY_PRODUCER } from '../actions/actionTypes';
 
 const initialState = [
   {

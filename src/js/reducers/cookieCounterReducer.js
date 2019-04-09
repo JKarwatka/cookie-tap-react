@@ -1,4 +1,4 @@
-import { ADD_COOKIE, REMOVE_COOKIE } from '../actions/action-types';
+import { ADD_COOKIE, REMOVE_COOKIE } from '../actions/actionTypes';
 
 const initialState = 0;
 

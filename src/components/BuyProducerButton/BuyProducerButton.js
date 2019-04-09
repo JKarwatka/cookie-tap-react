@@ -52,14 +52,14 @@ BuyProducerButton.propTypes = {
 
 const mapDispatchToProps = dispatch => {
   return {
-    handleClick: (id, quantity, currentProducerPrice) => {
-      dispatch(buyProducer(id, quantity));
+    handleClick: (producerId, quantityToBuy, currentProducerPrice) => {
+      dispatch(buyProducer(producerId, quantityToBuy));
       dispatch(removeCookie(currentProducerPrice));
     }
   };
 };
 
-const mapStatetoProps = (state, props) => {
+const mapStateToProps = (state, props) => {
   return {
     currentProducerPrice: producerPriceSelector(state, props),
     cookieCount: state.cookieCount,
@@ -68,6 +68,6 @@ const mapStatetoProps = (state, props) => {
 };
 
 export default connect(
-  mapStatetoProps,
+  mapStateToProps,
   mapDispatchToProps
 )(BuyProducerButton);
