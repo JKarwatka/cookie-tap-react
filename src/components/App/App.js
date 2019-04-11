@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Provider } from 'react-redux';
+import { Normalize } from 'styled-normalize';
 import Cookie from '../Cookie/Cookie';
 import CookieCounter from '../CookieCounter/CookieCounter';
 import store from '../../js/store';
-import CookieProducerList from '../CookieProducerList/CookieProducerList';
+import CookieProducerList from '../ProducerList/ProducerList';
 
 const StyledApp = styled.div`
   min-height: 100vh;
@@ -26,17 +27,20 @@ const StyledProducersSection = styled.section`
 
 function App() {
   return (
-    <Provider store={store}>
-      <StyledApp>
-        <StyledCookieSection>
-          <CookieCounter />
-          <Cookie />
-        </StyledCookieSection>
-        <StyledProducersSection>
-          <CookieProducerList />
-        </StyledProducersSection>
-      </StyledApp>
-    </Provider>
+    <>
+      <Normalize />
+      <Provider store={store}>
+        <StyledApp>
+          <StyledCookieSection>
+            <CookieCounter />
+            <Cookie />
+          </StyledCookieSection>
+          <StyledProducersSection>
+            <CookieProducerList />
+          </StyledProducersSection>
+        </StyledApp>
+      </Provider>
+    </>
   );
 }
 
