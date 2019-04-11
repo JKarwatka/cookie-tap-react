@@ -10,7 +10,16 @@ import {
 
 const StyledButton = styled.button`
   width: 4rem;
-  padding: 1rem;
+  padding: 0.5rem;
+`;
+
+const StyledPriceTag = styled.p``;
+
+const StyledContainer = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
 `;
 
 function BuyProducerButton(props) {
@@ -24,14 +33,17 @@ function BuyProducerButton(props) {
     ...props
   };
   return (
-    <StyledButton
-      disabled={!isBuyable}
-      onClick={() =>
-        handleClick(producer.id, quantityToBuy, currentProducerPrice)
-      }
-    >
-      x{quantityToBuy} {currentProducerPrice}
-    </StyledButton>
+    <StyledContainer>
+      <StyledButton
+        disabled={!isBuyable}
+        onClick={() =>
+          handleClick(producer.id, quantityToBuy, currentProducerPrice)
+        }
+      >
+        Buy x{quantityToBuy}
+      </StyledButton>
+      <StyledPriceTag>{currentProducerPrice}</StyledPriceTag>
+    </StyledContainer>
   );
 }
 
