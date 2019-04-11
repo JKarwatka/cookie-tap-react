@@ -8,12 +8,12 @@ const StyledProducer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 5rem;
   border: 2px solid black;
+  padding: 1rem;
   margin-top: 2rem;
 `;
 
-const StyledButtonContainer = styled.div`
+const StyledButtonSection = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -21,24 +21,39 @@ const StyledButtonContainer = styled.div`
 `;
 
 const StyledProducerTitle = styled.h2`
-  flex: 0 0 70%;
+  flex: 0 0 30%;
   text-align: center;
 `;
 
-function CookieProducer(props) {
+const StyledProducerStats = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 40%;
+`;
+const StyledProducerCounter = styled.p``;
+
+function Producer(props) {
   const { producer } = { ...props };
   return (
     <StyledProducer>
       <StyledProducerTitle>{producer.name}</StyledProducerTitle>
-      <StyledButtonContainer>
+      <StyledProducerStats>
+        <StyledProducerCounter>Owned: {producer.owned}</StyledProducerCounter>
+        <StyledProducerCounter>
+          Cookies/s: {producer.cookiesPerSecond * producer.owned}
+        </StyledProducerCounter>
+      </StyledProducerStats>
+      <StyledButtonSection>
         <ProducerButton producer={producer} quantityToBuy={1} />
         <ProducerButton producer={producer} quantityToBuy={10} />
-      </StyledButtonContainer>
+      </StyledButtonSection>
     </StyledProducer>
   );
 }
 
-CookieProducer.propTypes = {
+Producer.propTypes = {
   producer: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
@@ -49,4 +64,4 @@ CookieProducer.propTypes = {
   }).isRequired
 };
 
-export default CookieProducer;
+export default Producer;

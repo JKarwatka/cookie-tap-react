@@ -3,24 +3,24 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { buyProducer } from '../../js/actions/actions';
-import CookieProducer from '../CookieProducer/CookieProducer';
+import Producer from '../Producer/Producer';
 
 const StyledContainer = styled.div`
   max-height: 100%;
 `;
 
-function CookieProducerList(props) {
+function ProducerList(props) {
   const { arrayOfProducers } = props;
   return (
     <StyledContainer>
       {arrayOfProducers.map(producer => {
-        return <CookieProducer producer={producer} />;
+        return <Producer id={producer.id} producer={producer} />;
       })}
     </StyledContainer>
   );
 }
 
-CookieProducerList.propTypes = {
+ProducerList.propTypes = {
   arrayOfProducers: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
@@ -45,4 +45,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CookieProducerList);
+)(ProducerList);
