@@ -14,7 +14,7 @@ function ProducerList(props) {
   return (
     <StyledContainer>
       {arrayOfProducers.map(producer => {
-        return <Producer id={producer.id} producer={producer} />;
+        return <Producer key={producer.id} producer={producer} />;
       })}
     </StyledContainer>
   );

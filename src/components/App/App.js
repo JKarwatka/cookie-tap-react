@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { Normalize } from 'styled-normalize';
 import Cookie from '../Cookie/Cookie';
 import CookieCounter from '../CookieCounter/CookieCounter';
-import store from '../../js/store';
+import { store } from '../../js/store';
 import CookieProducerList from '../ProducerList/ProducerList';
 
 const StyledApp = styled.div`

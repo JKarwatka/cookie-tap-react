@@ -23,10 +23,12 @@ const StyledCookie = styled.img`
   }
 `;
 
-function Cookie({ handleClick }) {
+export function Cookie(props) {
+  const { handleClick } = props;
   return (
     <StyledContainer>
       <StyledCookie
+        data-testid="cookie"
         src={`${process.env.PUBLIC_URL}/cookie.svg`}
         alt="cookie"
         onClick={handleClick}
