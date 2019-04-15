@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addCookie } from '../../js/actions/actions';
+import cookie from '../../../public/cookie.svg';
 
 const StyledContainer = styled.div`
   max-width: 1400px;
@@ -29,7 +30,7 @@ export function Cookie(props) {
     <StyledContainer>
       <StyledCookie
         data-testid="cookie"
-        src={`${process.env.PUBLIC_URL}/cookie.svg`}
+        src={cookie}
         alt="cookie"
         onClick={handleClick}
       />
