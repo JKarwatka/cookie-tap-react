@@ -13,7 +13,7 @@ const StyledContainer = styled.div`
 function CookieCounter({ cookieCount, cookiesPerSecond }) {
   return (
     <StyledContainer>
-      <h2>Counter + {cookieCount.toFixed()}</h2>
+      <h2>{cookieCount.toFixed()} cookies</h2>
       <p>Cookies per second: {cookiesPerSecond.toFixed(1)}</p>
     </StyledContainer>
   );

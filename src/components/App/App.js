@@ -11,18 +11,27 @@ const StyledApp = styled.div`
   min-height: 100vh;
   width: 100%;
   display: flex;
+  background-color: #ffcc7a;
+  color: #333;
+  font-family: 'Rubik', sans-serif;
 `;
 const StyledCookieSection = styled.section`
-  flex-direction: column;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 50vh;
+  max-height: 100vh;
+  align-self: flex-start;
+  transform: translate(0, -50%);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex: 0 0 70%;
+  flex: 0 0 60%;
 `;
 
 const StyledProducersSection = styled.section`
-  flex: 0 0 30%;
-  background-color: gainsboro;
+  flex: 0 0 40%;
+  background-color: #77aedf;
 `;
 
 function App() {

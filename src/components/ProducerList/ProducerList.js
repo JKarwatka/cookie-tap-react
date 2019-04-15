@@ -6,13 +6,22 @@ import { buyProducer } from '../../js/actions/actions';
 import Producer from '../Producer/Producer';
 
 const StyledContainer = styled.div`
-  max-height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+`;
+
+const StyledProducerListTitle = styled.h2`
+  font-size: 3rem;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 function ProducerList(props) {
   const { arrayOfProducers } = props;
   return (
     <StyledContainer>
+      <StyledProducerListTitle>Cookie Store</StyledProducerListTitle>
       {arrayOfProducers.map(producer => {
         return <Producer key={producer.id} producer={producer} />;
       })}

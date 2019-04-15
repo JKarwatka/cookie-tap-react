@@ -8,12 +8,41 @@ import {
   isBuyableSelector
 } from '../../js/selectors/selectors';
 
+import cookieImg from '../../assets/cookie.svg';
+
 const StyledButton = styled.button`
-  width: 4rem;
-  padding: 0.5rem;
+  padding: 0;
+  border: none;
+  color: #333;
+  background-color: #d6a351;
+  font-weight: bold;
+  font-size: 1rem;
+  border: solid 1px transparent;
+  border-radius: 4px;
+  width: 6rem;
+  padding: 1rem;
+
+  &:disabled {
+    background-color: #bbb;
+    color: #555;
+  }
 `;
 
-const StyledPriceTag = styled.p``;
+const StyledPriceTag = styled.p`
+  font-weight: bold;
+  position: relative;
+
+  &::before {
+    content: '';
+    /* position: absolute;
+    left: 0;
+    top: 50%; */
+    width: 4rem;
+    transform: translate(0, -50%);
+    /* background-image: url(${cookieImg}); */
+    background-color: red;
+  }
+`;
 
 const StyledContainer = styled.div`
   display: flex;

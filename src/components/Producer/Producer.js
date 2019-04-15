@@ -8,9 +8,12 @@ const StyledProducer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid black;
-  padding: 1rem;
-  margin-top: 2rem;
+  padding: 2rem 1rem;
+  border-bottom: solid 0.1rem rgba(0, 0, 0, 0.2);
+
+  &:nth-child(2) {
+    border-top: solid 0.11rem rgba(0, 0, 0, 0.2);
+  }
 `;
 
 const StyledButtonSection = styled.div`

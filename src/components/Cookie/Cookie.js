@@ -4,11 +4,14 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addCookie } from '../../js/actions/actions';
 
+import cookieImg from '../../assets/cookie.svg';
+
 const StyledContainer = styled.div`
   max-width: 1400px;
 `;
 
 const StyledCookie = styled.img`
+  min-width: 15rem;
   width: 100%;
   height: 100%;
   transform: scale(0.95);
@@ -29,7 +32,7 @@ export function Cookie(props) {
     <StyledContainer>
       <StyledCookie
         data-testid="cookie"
-        src={`${process.env.PUBLIC_URL}/cookie.svg`}
+        src={cookieImg}
         alt="cookie"
         onClick={handleClick}
       />
