@@ -1,5 +1,9 @@
 import { put, select, all, delay, take, fork } from 'redux-saga/effects';
-import { cookiesPerSecondSelector } from '../selectors/selectors';
+import { REHYDRATE } from 'redux-persist';
+import {
+  cookiesPerSecondSelector,
+  cookieIdleCountSelector
+} from '../selectors/selectors';
 import { addCookie, generateCookiesFromProducers } from '../actions/actions';
 import { GENERATE_COOKIE_FROM_PRODUCERS } from '../actions/actionTypes';
 
@@ -24,9 +28,22 @@ function* dispatchGenerateCookiesFromProducers() {
   }
 }
 
+function* generateCookiesForIdleTime() {
+  const cookiesGeneratedInIdleTime = yield select(cookieIdleCountSelector);
+  yield put(addCookie(cookiesGeneratedInIdleTime));
+}
+
+function* watchStateRehydrate() {
+  while (true) {
+    yield take(REHYDRATE);
+    yield fork(generateCookiesForIdleTime);
+  }
+}
+
 export default function* rootSaga() {
   yield all([
     fork(dispatchGenerateCookiesFromProducers),
-    fork(watchGenerateCookiesFromProducers)
+    fork(watchGenerateCookiesFromProducers),
+    fork(watchStateRehydrate)
   ]);
 }

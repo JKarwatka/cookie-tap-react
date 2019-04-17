@@ -5,10 +5,12 @@ const producersSelector = state => state.producers;
 
 const cookieCountSelector = state => state.cookieCount;
 
+const timestampSelector = state => state.timestamp;
+
 const producerSelector = (state, props) =>
   state.producers.find(producer => producer.id === props.producer.id);
 
-const getQuantitySelector = (state, props) => props.quantityToBuy;
+const getQuantitySelector = (_, props) => props.quantityToBuy;
 
 export const cookiesPerSecondSelector = createSelector(
   producersSelector,
@@ -29,4 +31,12 @@ export const producerPriceSelector = createSelector(
 export const isBuyableSelector = createSelector(
   [cookieCountSelector, producerPriceSelector],
   (cookieCount, producerPrice) => cookieCount >= producerPrice
+);
+
+export const cookieIdleCountSelector = createSelector(
+  [cookiesPerSecondSelector, timestampSelector],
+  (cookiesPerSecond, timestamp) => {
+    const idleTimeInSeconds = (Date.now().valueOf() - timestamp) / 1000;
+    return cookiesPerSecond * idleTimeInSeconds;
+  }
 );
