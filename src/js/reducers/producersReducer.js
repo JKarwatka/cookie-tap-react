@@ -4,8 +4,8 @@ const initialState = [
   {
     id: 1,
     name: 'Cursor',
-    baseValue: 15,
-    cookiesPerSecond: 0.1,
+    baseValue: 1,
+    cookiesPerSecond: 5,
     priceIncrease: 0.15,
     owned: 0
   },
