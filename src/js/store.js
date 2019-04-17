@@ -7,7 +7,8 @@ import rootSaga from './sagas/sagas';
 
 const persistConfig = {
   key: 'root',
-  storage
+  storage,
+  throttle: 60000
 };
 
 const sagaMiddleware = createSagaMiddleware();
